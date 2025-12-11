@@ -1,0 +1,1649 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------
+   Estilos Base Globales
+--------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  color: #222;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* NAVBAR TODO CENTRADO */
+.nav-center-master {
+  width: 100%;
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(3px);
+  padding: 14px 0;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-center-wrapper {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-center-menu {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.nav-center-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  letter-spacing: 0.8px;
+  position: relative;
+}
+
+/* LOGO */
+.logo-li img {
+  height: 100px;
+  transition: 0.3s ease;
+}
+
+.logo-li img:hover {
+  transform: scale(1.05);
+}
+
+/* SUBRAYADO ANIMADO */
+.nav-center-menu li a::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  transform: translateX(-50%);
+  transition: 0.3s ease;
+}
+
+.nav-center-menu li a:hover::after {
+  width: 70%;
+}
+
+/* MOBILE */
+.nav-toggle {
+  display: none;
+  position: absolute;
+  right: 20px;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-mobile {
+  display: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .nav-center-menu {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-mobile {
+    display: flex;
+    flex-direction: column;
+    background: #111;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .nav-mobile a {
+    color: white;
+    padding: 12px 0;
+    text-decoration: none;
+    font-size: 18px;
+  }
+}
+
+/* ------------------------------
+   Galería
+--------------------------------*/
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  background: #ddd;
+}
+
+/* ------------------------------
+   GALERÍA PÚBLICA
+--------------------------------*/
+.gallery-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.gallery-container h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform .2s ease, box-shadow .2s ease;
+  background: #ccc;
+}
+
+/* Hover: imagen se levanta un poco */
+.gallery-grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* ------------------------------
+   FORMULARIOS (Registro, Citas)
+--------------------------------*/
+.form-container {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #555;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background: #333;
+}
+
+/* ------------------------------
+   FORMULARIO DE CITAS
+--------------------------------*/
+
+.form-note {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.success-message {
+  color: green;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* ------------------------------
+   TABLAS ADMIN PROFESIONALES
+--------------------------------*/
+.table-container {
+  max-width: 950px;
+  margin: 40px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.table-container h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+thead {
+  background: #111;
+  color: white;
+}
+
+thead th {
+  padding: 12px;
+  text-align: left;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+tbody tr:nth-child(even) {
+  background: #f4f4f4;
+}
+
+tbody tr:hover {
+  background: #e9e9e9;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Botones */
+.action-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-right: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-edit {
+  background: #007bff;
+}
+.btn-edit:hover {
+  background: #005fcc;
+}
+
+.btn-delete {
+  background: #d9534f;
+}
+.btn-delete:hover {
+  background: #b52b27;
+}
+
+/* Iconos */
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* ------------------------------
+   FOOTER GENERAL
+--------------------------------*/
+footer {
+  background: #111;
+  color: #eee;
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+footer .footer-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+footer h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+footer p {
+  margin: 4px 0;
+  color: #ccc;
+}
+
+footer .social {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+footer .social img {
+  width: 26px;
+  height: 26px;
+  filter: brightness(0) invert(1);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+footer .social img:hover {
+  opacity: 0.7;
+}
+
+footer .copy {
+  text-align: center;
+  margin-top: 20px;
+  color: #777;
+  font-size: 14px;
+}
+
+/* ------------------------------
+   LANDING SECTION
+--------------------------------*/
+
+.landing-section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.landing-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.no-designs {
+  text-align: center;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* Grid */
+.recent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.recent-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  background: #ccc;
+}
+
+/* Botón azul */
+.btn-blue {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.btn-blue:hover {
+  background: #005fcc;
+}
+
+.center {
+  text-align: center;
+  margin-top: 25px;
+}
+
+/* ----------------------------------
+   HERO PRINCIPAL
+----------------------------------*/
+.hero {
+  height: 90vh;
+  background: url('https://bogota.gov.co/sites/default/files/styles/1050px/public/2025-08/primera-convencion-de-tatuadores-tatto-fest-z4-en-san-cristobal.png')
+    center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-content {
+  position: relative;
+  color: white;
+  text-align: center;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 60px;
+  margin-bottom: 15px;
+  text-shadow: 0px 4px 15px black;
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  line-height: 1.4;
+  text-shadow: 0px 3px 10px black;
+}
+
+.btn-primary-big {
+  padding: 16px 30px;
+  background: rgb(194, 182, 182) ;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.btn-primary-big:hover {
+  background: rgb(194, 182, 182);
+  transform: scale(1.05);
+}
+
+/* ========================================= */
+/* SOBRE NOSOTROS */
+/* ========================================= */
+
+.about-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 80px 5%;
+  background: #0d0d0d;
+  color: white;
+  gap: 40px;
+}
+
+.about-left {
+  flex: 1;
+}
+
+.about-small-text {
+  color: #bbb;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.about-title {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.about-description {
+  color: #ccc;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 550px;
+}
+
+.about-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-img {
+  width: 350px;
+  height: auto;
+  filter: brightness(90%);
+}
+
+/* ======================================= */
+/* ACORDEONES PREMIUM */
+/* ======================================= */
+
+.accordion-premium details {
+  border-bottom: 1px dashed #444;
+  padding: 22px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.accordion-premium summary {
+  list-style: none;
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  padding-right: 24px;
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.accordion-premium summary:hover {
+  color: #ddd;
+}
+
+/* Ícono animado */
+.accordion-premium summary .icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 24px;
+  width: 22px;
+  height: 22px;
+}
+
+.accordion-premium details summary .icon::before {
+  content: "+";
+  transition: transform 0.3s ease;
+}
+
+.accordion-premium details[open] summary .icon::before {
+  content: "-";
+  transform: rotate(180deg);
+}
+
+.accordion-premium p {
+  margin-top: 12px;
+  color: #ccc;
+  font-size: 17px;
+  line-height: 1.6;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======================================= */
+/* FADE-IN ON SCROLL */
+/* ======================================= */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInSection 1s ease forwards;
+}
+
+.fade-in-delayed {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInSection 1s ease 0.35s forwards;
+}
+
+@keyframes fadeInSection {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .about-premium {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-right {
+    order: -1;
+    margin-bottom: 40px;
+  }
+
+  .about-illustration {
+    width: 300px;
+  }
+
+  .about-description {
+    margin: 0 auto 40px auto;
+  }
+}
+
+/* FONDO TEXTURIZADO */
+.about-premium {
+  background: #0d0d0d url("https://www.toptal.com/designers/subtlepatterns/uploads/dark-matter.png");
+  background-size: repeat;
+  padding: 100px 6%;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* COLUMNA IZQUIERDA */
+.about-left {
+  flex: 1;
+}
+
+.about-small-text {
+  color: #bbb;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.about-title {
+  font-size: 48px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.about-description {
+  color: #ccc;
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 40px;
+}
+
+/* COLUMNA DERECHA */
+.about-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-illustration {
+  width: 380px;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
+}
+
+
+/* ----------------------------------
+   DISEÑOS RECIENTES
+----------------------------------*/
+.recent-section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.recent-section h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.recent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.recent-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  background: #ddd;
+  transition: 0.2s;
+}
+
+.recent-img:hover {
+  transform: scale(1.03);
+}
+
+/* Botón galería */
+.btn-secondary {
+  padding: 12px 25px;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  background: #333;
+}
+
+.center {
+  text-align: center;
+  margin-top: 25px;
+}
+
+/* ----------------------------------
+   CTA FINAL
+----------------------------------*/
+.cta-section {
+  background: #111;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cta-section h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+/* SECCIÓN TATUAJES */
+.tatuajes-container {
+  width: 90%;
+  margin: 140px auto 60px auto;
+  text-align: center;
+}
+
+.titulo-seccion {
+  font-size: 38px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.subtitulo-seccion {
+  color: #777;
+  margin-bottom: 35px;
+  font-size: 18px;
+}
+
+.grid-estilos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.tarjeta-estilo {
+  background: #111;
+  padding: 18px;
+  border-radius: 10px;
+  color: white;
+  transition: 0.3s;
+  border: 1px solid #222;
+}
+
+.tarjeta-estilo:hover {
+  transform: translateY(-6px);
+  border-color: #444;
+}
+
+.img-estilo {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.tarjeta-estilo h3 {
+  margin-top: 12px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.tarjeta-estilo p {
+  font-size: 15px;
+  margin: 10px 0 15px 0;
+  color: #ccc;
+}
+
+.btn-estilo {
+  display: inline-block;
+  background: #ffffff;
+  color: #000;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-estilo:hover {
+  background: #ccc;
+}
+
+.gallery-container {
+  width: 90%;
+  margin: 140px auto 60px auto;
+}
+
+.gallery-title {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.loading-text {
+  text-align: center;
+  color: #aaa;
+}
+
+/* Masonry grid */
+.masonry-grid {
+  column-count: 3;
+  column-gap: 15px;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 15px;
+}
+
+.masonry-img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.masonry-img:hover {
+  transform: scale(1.02);
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .masonry-grid {
+    column-count: 1;
+  }
+}
+
+.artistas-section {
+  width: 90%;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.section-subtitle {
+  margin-bottom: 25px;
+  color: #bbb;
+}
+
+.artistas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.artista-card {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+  border: 1px solid #222;
+}
+
+.artista-card:hover {
+  transform: translateY(-6px);
+  border-color: #444;
+}
+
+.artista-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.artista-card:hover .artista-img {
+  transform: scale(1.05);
+}
+
+/* GRID - organiza las tarjetas correctamente */
+.artistas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  margin-top: 30px;
+}
+
+/* TARJETA - eliminamos padding grande y ajustamos borde */
+.artista-card {
+  background: #111;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #222;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 15px; /* espacio CONTROLADO bajo la imagen */
+}
+
+.artista-card:hover {
+  transform: translateY(-6px);
+  border-color: #444;
+}
+
+/* IMAGEN AJUSTADA AL CONTENIDO REAL */
+.artista-img {
+  width: 100%;
+  height: 100%;       /* puedes subir a 400 si quieres vertical más larga */
+  object-fit: cover;   /* evita distorsión */
+  object-position: center;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.artista-card:hover .artista-img {
+  transform: scale(1.05);
+}
+
+/* NOMBRE DEL ARTISTA */
+.artista-card h3 {
+  margin-top: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+/* ESPECIALIDAD */
+.artista-card p {
+  color: #ccc;
+  margin-top: 6px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.cita-container {
+  display: flex;
+  width: 90%;
+  margin: 140px auto;
+  color: white;
+  gap: 60px;
+}
+
+.cita-info {
+  flex: 1;
+}
+
+.cita-title {
+  font-size: 60px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.cita-subtitle {
+  color: #bbb;
+  font-size: 20px;
+}
+
+.cita-description {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ccc;
+  max-width: 450px;
+}
+
+.cita-address {
+  font-style: italic;
+  margin: 30px 0;
+}
+
+.cita-map iframe {
+  border-radius: 10px;
+}
+
+/* FORMULARIO */
+.cita-form {
+  flex: 1;
+  background: #0d0d0d;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.cita-form-title {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.cita-progress {
+  width: 100%;
+  height: 15px;
+  background: #333;
+  border-radius: 4px;
+  margin: 18px 0 25px;
+}
+
+.cita-progress-bar {
+  height: 100%;
+  background: #4caf50;
+  border-radius: 4px;
+  transition: 0.4s;
+}
+
+.cita-form label {
+  margin-top: 18px;
+  display: block;
+  color: #ddd;
+  font-weight: 600;
+}
+
+.cita-form select,
+.cita-form input {
+  width: 100%;
+  padding: 12px;
+  background: black;
+  border: 1px solid #444;
+  color: white;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+.btn-cita {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  background: #4caf50;
+  color: black;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn-cita:hover {
+  background: #65d96b;
+}
+
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn-back {
+  flex: 1;
+  padding: 14px;
+  background: transparent;
+  border: 1px solid #666;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-back:hover {
+  background: #222;
+  border-color: #999;
+}
+
+.btn-cita {
+  flex: 1;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.cita-container {
+  display: flex;
+  width: 90%;
+  margin: 140px auto;
+  gap: 60px;
+  color: white;
+}
+
+/* --- LADO IZQUIERDO: TEXTO Y MAPA --- */
+.cita-info {
+  flex: 1;
+  background: #0a0a0a;   /* FONDO NEGRO */
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.cita-title {
+  color: white;
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 20px 0;
+}
+
+.cita-subtitle {
+  color: #d4d4d4;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.cita-description {
+  color: #cfcfcf;
+  margin-top: 20px;
+  font-size: 18px;
+  max-width: 450px;
+}
+
+.cita-address {
+  color: #eeeeee;
+  font-style: italic;
+  margin: 30px 0 20px;
+}
+
+.cita-map {
+  width: 100%;
+  height: 260px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+/* Fondo solo para la sección de citas */
+.cita-page-bg {
+  background-image: url("https://img.freepik.com/vector-gratis/disenos-tatuajes-flash-vintage-patrones-fisuras_225004-1539.jpg?semt=ais_hybrid&w=740&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+}
+
+
+
+
+
+/* todo el contenido encima del overlay */
+.cita-container {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+
+/* correciones */
+.cita-page-bg {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.nav-master {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.map-link {
+  color: #eeeeee;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+}
+
+.page-default {
+  padding-top: 120px; /* deja espacio para que el navbar no tape el contenido */
+  min-height: 100vh;
+  background: #f5f5f5; /* color de fondo normal */
+}
+
+/* Fondo negro solo para esta página */
+.tatuajes-section {
+  background: black;
+  color: white;
+  padding-top: 120px; /* espacio para el navbar */
+  padding-bottom: 80px;
+  min-height: 100vh;
+}
+
+/* Contenedor general */
+.tatuajes-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* Títulos */
+.titulo-seccion {
+  font-size: 48px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.subtitulo-seccion {
+  font-size: 20px;
+  opacity: 0.8;
+  margin-bottom: 40px;
+  color: #ddd;
+}
+
+/* Grid */
+.grid-estilos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+/* Tarjetas */
+.tarjeta-estilo {
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  transition: 0.3s;
+  border: 1px solid #333;
+}
+
+.tarjeta-estilo:hover {
+  transform: translateY(-6px);
+  background: #1a1a1a;
+}
+
+/* Imagen */
+.img-estilo {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Botón */
+.btn-estilo {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  background: white;
+  color: black;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-estilo:hover {
+  background: #e6e6e6;
+}
+
+/* Contenedor de la sección */
+.recent-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+/* Grid de 4 columnas (responsive) */
+.recent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto 40px;
+}
+
+/* Card individual */
+.recent-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 220px; /* tamaño mediano */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+/* Hover */
+.recent-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Imagen completa centrada */
+.recent-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* recorta relleno */
+  display: block;
+  transition: 0.3s;
+}
+
+/* === GALERÍA === */
+.design-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  padding: 20px;
+}
+
+/* Tarjeta */
+.design-card {
+  background: #121212;
+  color: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform .2s ease;
+}
+
+.design-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Contenedor de imagen */
+.design-img-container {
+  width: 100%;
+  height: 240px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagen de diseño */
+.design-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cambia a contain si quieres mostrar todo */
+  cursor: pointer;
+  transition: .3s;
+}
+
+.design-img:hover {
+  opacity: 0.85;
+}
+
+/* Info */
+.design-info {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.desc {
+  font-size: 13px;
+  color: #cfcfcf;
+  margin: 8px 0;
+}
+
+/* Botones */
+.btn-edit,
+.btn-delete,
+.btn-save {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.btn-edit {
+  background: #f4b400;
+  color: #000;
+}
+
+.btn-edit:hover {
+  background: #d9a000;
+}
+
+.btn-save {
+  background: #1abc9c;
+  color: white;
+}
+
+.btn-save:hover {
+  background: #15967d;
+}
+
+.btn-delete {
+  background: #e63946;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #b71c1c;
+}
+
+/* Input de edición */
+.edit-input {
+  width: 100%;
+  background: #222;
+  border: 1px solid #444;
+  color: white;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.date-input,
+.hour-select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: #111;
+  border: 1px solid #333;
+  color: white;
+  font-size: 15px;
+}
+
+.date-input:focus,
+.hour-select:focus {
+  border-color: #4ade80;
+  outline: none;
+}
+
+.hour-select optgroup {
+  background: #000;
+  color: #4ade80;
+  font-weight: bold;
+}
+
+.hour-select option {
+  padding: 10px;
+  background: #111;
+  color: white;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 65px;
+  height: 65px;
+  z-index: 9999;
+
+  background-color: #25D366; /* verde WhatsApp */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.whatsapp-icon {
+  width: 36px;
+  height: 36px;
+  filter: none !important; /* evita recoloración */
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.55);
+}
+
+/* Fondo completamente negro SOLO para la galería */
+.gallery-page {
+  background: #000 !important;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.gallery-section {
+  background: black;
+  color: white;
+  padding-top: 10px; /* espacio para el navbar */
+  padding-bottom: 80px;
+  min-height: 100vh;
+}
+
+.cita-section {
+  background-image: url("https://img.freepik.com/vector-gratis/disenos-tatuajes-flash-vintage-patrones-fisuras_225004-1539.jpg?semt=ais_hybrid&w=740&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 10px; /* espacio para el navbar */
+  min-height: 100vh;
+}
+
+
+/* Título */
+.gallery-title {
+  text-align: center;
+  color: #fff;
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+}
+
+/* GRID ORDENADO */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Tarjeta con fondo oscuro */
+.gallery-card {
+  background: #111;
+  border-radius: 10px;
+  padding: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: scale(1.03);
+}
+
+/* Imagen con tamaño uniforme */
+.gallery-img {
+  width: 100%;
+  height: 330px;       /* CONTROL DEL TAMAÑO */
+  object-fit: cover;   /* Recorta pero mantiene proporciones */
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.footer-social {
+  margin-top: 20px;
+}
+
+.footer-social h3 {
+  margin-bottom: 10px;
+}
+
+.social-icon img {
+  width: 38px;
+  height: 38px;
+  transition: transform 0.2s ease;
+  margin-right: 12px;
+}
+
+.social-icon img:hover {
+  transform: scale(1.15);
+  filter: invert(0.7);
+}
+
+
+
+
+
+
