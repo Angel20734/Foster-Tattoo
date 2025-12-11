@@ -91,13 +91,13 @@ export default function Landing() {
         <div className="artistas-grid">
           
           <div className="artista-card">
-            <img src="public/imgs/artista1.jpg" className="artista-img" />
+            <img src="public/imgs/artista1.jpg" alt="Foster" />
             <h3>Foster</h3>
             <p>Especialista en realismo y microrealismo</p>
           </div>
 
           <div className="artista-card">
-            <img src="public/imgs/artista2.jpg" className="artista-img" />
+            <img src="public/imgs/artista2.jpg" alt="Omar" />
             <h3>Omar</h3>
             <p>Blackwork, sombras profundas y piezas grandes</p>
           </div>
